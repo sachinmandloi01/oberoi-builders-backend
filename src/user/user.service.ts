@@ -37,4 +37,12 @@ export class UserService {
   async findByEmail(email): Promise<User> {
     return this.userModel.findOne({ email }).lean();
   }
+  async findByMobile(mobile: string): Promise<User | undefined> {
+    return this.userModel.findOne({ mobile }).exec();
+  }
+
+  async createUser(data: Partial<User>): Promise<User> {
+    const user = new this.userModel(data);
+    return user.save();
+  }
 }

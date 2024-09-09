@@ -26,4 +26,17 @@ export class AuthController {
     }
     return this.authService.login(user);
   }
+  @Post('send-otp')
+  async sendOtp(@Body('mobile') mobile: string): Promise<void> {
+    await this.authService.sendOtp(mobile);
+  }
+
+  @Post('verify-otp')
+  async verifyOtp(
+    @Body('mobile') mobile: string,
+    @Body('otp') otp: string,
+  ): Promise<{ sub: string }> {
+    const accessToken = await this.authService.verifyOtp(mobile, otp);
+    return accessToken;
+  }
 }
