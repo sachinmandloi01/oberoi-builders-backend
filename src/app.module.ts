@@ -17,7 +17,7 @@ import { PropertyModule } from './property/property.module';
     MongooseModule.forRoot(process.env.DATABASE_URL, {}),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
-      serveRoot: '/uploads', // This should match the path you're trying to access in the URL
+      serveRoot: '/api/uploads', // This should match the path you're trying to access in the URL
     }),
     UserModule,
     AuthModule,
