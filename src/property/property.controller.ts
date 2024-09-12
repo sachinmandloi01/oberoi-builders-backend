@@ -21,7 +21,7 @@ import { AnyFilesInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { v4 as uuidv4 } from 'uuid';
 import * as path from 'path';
-@Controller('property')
+@Controller('api/property')
 export class PropertyController {
   constructor(private readonly propertyService: PropertyService) {}
 
